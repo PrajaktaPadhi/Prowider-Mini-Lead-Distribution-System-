@@ -1,10 +1,7 @@
 import mongoose from 'mongoose';
 
+// Keep declaration outside, but do not throw error on import
 const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable in .env.local');
-}
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -18,6 +15,10 @@ if (!cached) {
 }
 
 async function dbConnect() {
+  if (!MONGODB_URI) {
+    throw new Error('MONGODB_URI environment variable is missing. Please set it in your environment settings.');
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
