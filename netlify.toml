@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Next.js Runtime is automatically managed by Netlify for standard App Router deployments.
+# Ensure that the MONGODB_URI environment variable is set in the Netlify dashboard under:
+# Site Configuration > Environment variables
