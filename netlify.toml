@@ -1,7 +1,12 @@
 [build]
   command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # NOTE FOR NETLIFY:
 # Do not specify the 'publish' directory when deploying Next.js 14/15 on Netlify (v5 Next.js Runtime).
 # Netlify will automatically detect and configure the serverless runtime and static publishing under the hood.
 # Specifying 'publish = ".next"' can override the adapter and cause "404 Page Not Found" errors.
+
